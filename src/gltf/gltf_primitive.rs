@@ -1,14 +1,21 @@
+extern crate serde_json;
+use serde_json::Value;
 use std::iter::Map;
 
 pub struct GltfPrimitive {
   pub attributes: Map<String, u32>,
   pub indices: Option<u32>,
+
   pub material: Option<u32>,
+
   pub mode: Option<GltfPrimitiveMode>,
+
   pub targets: Option<Vec<Map<String, u32>>>,
+
   pub name: Option<String>,
-  // pub extensions: Option<Map>,
-  // pub extras: Option<Map<>>,
+
+  pub extensions: Option<Map<String, Value>>,
+  pub extras: Option<Map<String, Value>>,
 }
 
 pub enum GltfPrimitiveMode {

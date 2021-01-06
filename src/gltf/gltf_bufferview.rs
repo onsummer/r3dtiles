@@ -1,3 +1,7 @@
+extern crate serde_json;
+use serde_json::Value;
+use std::iter::Map;
+
 pub struct GltfBufferView {
   pub buffer: u32,
   pub byte_length: u32,
@@ -5,8 +9,9 @@ pub struct GltfBufferView {
   pub target: Option<GltfBufferViewTarget>,
   pub byte_stride: Option<u32>,
   pub name: Option<String>,
-  // pub extensions: Option<Map>,
-  // pub extras: Option<Map<>>,
+
+  pub extensions: Option<Map<String, Value>>,
+  pub extras: Option<Map<String, Value>>,
 }
 
 pub enum GltfBufferViewTarget {
