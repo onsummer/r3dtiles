@@ -1,2 +1,3 @@
 pub mod gltf;
-pub mod primitive_builder;
+pub mod tileset_sdk;
+pub mod tileset_tiletable;

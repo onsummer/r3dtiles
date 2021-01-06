@@ -15,8 +15,8 @@ pub struct GltfPrimitive {
 
   pub name: Option<String>,
 
-  pub extensions: Option<Map<String, Value>>,
-  pub extras: Option<Map<String, Value>>,
+  pub extensions: Option<Value>,
+  pub extras: Option<Value>,
 }
 
 pub enum GltfPrimitiveMode {
@@ -27,4 +27,20 @@ pub enum GltfPrimitiveMode {
   Triangles(u8),
   TrianglesStrip(u8),
   TrianglesFan(u8),
+}
+
+impl GltfPrimitive {
+  pub fn new() -> GltfPrimitive {
+    GltfPrimitive {
+      attributes: HashMap::new() as HashMap<String, u32>,
+      material: None,
+      indices: None,
+      targets: None,
+      name: None,
+      mode: Some(GltfPrimitiveMode::Triangles(4)),
+
+      extras: None,
+      extensions: None
+    }
+  }
 }

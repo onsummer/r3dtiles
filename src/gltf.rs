@@ -33,3 +33,27 @@ pub struct Gltf {
   pub extensions_used: Vec<String>,
   pub extensions_required: Vec<String>
 }
+
+impl Gltf {
+  pub fn new() -> Gltf {
+    Gltf {
+      asset: gltf_asset::GltfAsset::new(),
+
+      buffers: Vec::new(),
+      bufferviews: Vec::new(),
+      accessors: Vec::new(),
+
+      scenes: Vec::new(),
+      nodes: Vec::new(),
+      meshes: Vec::new(),
+
+      materials: Vec::new(),
+      textures: Vec::new(),
+      samplers: Vec::new(),
+      images: Vec::new(),
+
+      extensions_used: Vec::new(),
+      extensions_required: Vec::new()
+    }
+  }
+}

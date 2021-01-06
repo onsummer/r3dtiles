@@ -1,6 +1,5 @@
 extern crate serde_json;
 use serde_json::Value;
-use std::collections::HashMap;
 
 pub struct GltfSampler {
   pub mag_filter: Option<GltfMagnificationFilter>,
@@ -9,8 +8,23 @@ pub struct GltfSampler {
   pub wrap_t: Option<GltfWrapType>,
   pub name: Option<String>,
 
-  pub extensions: Option<HashMap<String, Value>>,
-  pub extras: Option<HashMap<String, Value>>,
+  pub extensions: Option<Value>,
+  pub extras: Option<Value>,
+}
+
+impl GltfSampler {
+  pub fn new() -> GltfSampler {
+    GltfSampler {
+      mag_filter: None,
+      min_filter: None,
+      wrap_s: None,
+      wrap_t: None,
+      name: None,
+
+      extensions: None,
+      extras: None
+    }
+  }
 }
 
 pub enum GltfMagnificationFilter {

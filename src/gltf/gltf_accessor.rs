@@ -12,6 +12,26 @@ pub struct GltfAccessor {
   pub sparse: Option<GltfAccessorSparse>,
 }
 
+impl GltfAccessor {
+  pub fn new(
+    component_type: GltfComponentType,
+    attribute_type: GltfAttributeType,
+    count: u32
+  ) -> GltfAccessor {
+    GltfAccessor {
+      component_type: component_type,
+      attribute_type: attribute_type,
+      count: count,
+      max: None,
+      min: None,
+      bufferview: None,
+      byte_offset: Some(0),
+      normalized: None,
+      sparse: None
+    }
+  }
+}
+
 pub struct GltfAccessorSparse {
   // TODO
 }

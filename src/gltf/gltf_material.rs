@@ -1,6 +1,5 @@
 extern crate serde_json;
 use serde_json::Value;
-use std::collections::HashMap;
 
 pub struct GltfMaterial {
   pub alpha_cutoff: Option<f64>,
@@ -16,8 +15,30 @@ pub struct GltfMaterial {
 
   pub name: Option<String>,
 
-  pub extensions: Option<HashMap<String, Value>>,
-  pub extras: Option<HashMap<String, Value>>,
+  pub extensions: Option<Value>,
+  pub extras: Option<Value>,
+}
+
+impl GltfMaterial {
+  pub fn new() -> GltfMaterial {
+    GltfMaterial {
+      alpha_cutoff: Some(0.0),
+      alpha_mode: Some(GltfAlphaMode::Opaque),
+      double_sided: Some(false),
+
+      pbr_metallic_roughness: None,
+
+      emissive_factor: Some([0.0, 0.0, 0.0]),
+      normal_texture: None,
+      emissive_texture: None,
+      occlusion_texture: None,
+
+      name: None,
+
+      extensions: None,
+      extras: None
+    }
+  }
 }
 
 pub enum GltfAlphaMode {
@@ -33,8 +54,23 @@ pub struct GltfPbr {
   pub roughness_factor: Option<f64>,
   pub metallic_roughness_rtexture: Option<GltfTextureInfo>,
 
-  pub extensions: Option<HashMap<String, Value>>,
-  pub extras: Option<HashMap<String, Value>>,
+  pub extensions: Option<Value>,
+  pub extras: Option<Value>,
+}
+
+impl GltfPbr {
+  pub fn new() -> GltfPbr {
+    GltfPbr {
+      basecolor_factor: None,
+      basecolor_texture: None,
+      metallic_factor: None,
+      metallic_roughness_rtexture: None,
+      roughness_factor: None,
+
+      extensions: None,
+      extras: None
+    }
+  }
 }
 
 pub struct GltfNormalTextureInfo {
@@ -42,8 +78,22 @@ pub struct GltfNormalTextureInfo {
   pub scale: Option<f64>,
   pub tex_coord: Option<u32>,
 
-  pub extensions: Option<HashMap<String, Value>>,
-  pub extras: Option<HashMap<String, Value>>,
+  pub extensions: Option<Value>,
+  pub extras: Option<Value>,
+}
+
+impl GltfNormalTextureInfo {
+  pub fn new(
+    texture_index: u32
+  ) -> GltfNormalTextureInfo {
+    GltfNormalTextureInfo {
+      index: texture_index,
+      scale: None,
+      tex_coord: None,
+      extensions: None,
+      extras: None
+    }
+  }
 }
 
 pub struct GltfOcclusionTextureInfo {
@@ -51,11 +101,36 @@ pub struct GltfOcclusionTextureInfo {
   pub strength: Option<f64>,
   pub tex_coord: Option<u32>,
 
-  pub extensions: Option<HashMap<String, Value>>,
-  pub extras: Option<HashMap<String, Value>>,
+  pub extensions: Option<Value>,
+  pub extras: Option<Value>,
+}
+
+impl GltfOcclusionTextureInfo {
+  pub fn new(
+    texture_index: u32
+  ) -> GltfOcclusionTextureInfo {
+    GltfOcclusionTextureInfo {
+      index: texture_index,
+      strength: None,
+      tex_coord: None,
+      extensions: None,
+      extras: None
+    }
+  }
 }
 
 pub struct GltfTextureInfo {
   pub index: u32,
   pub tex_coord: Option<u32>,
+}
+
+impl GltfTextureInfo {
+  pub fn new(
+    texture_index: u32
+  ) -> GltfTextureInfo {
+    GltfTextureInfo {
+      index: texture_index,
+      tex_coord: None,
+    }
+  }
 }

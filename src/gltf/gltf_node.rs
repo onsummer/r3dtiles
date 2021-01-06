@@ -1,6 +1,5 @@
 extern crate serde_json;
 use serde_json::Value;
-use std::collections::HashMap;
 
 pub struct GltfNode {
   pub camera: Option<u32>,
@@ -13,6 +12,25 @@ pub struct GltfNode {
   pub matrix: Option<[f64; 16]>,
   pub skin: Option<u32>,
 
-  pub extensions: Option<HashMap<String, Value>>,
-  pub extras: Option<HashMap<String, Value>>,
+  pub extensions: Option<Value>,
+  pub extras: Option<Value>,
+}
+
+impl GltfNode {
+  pub fn new() -> GltfNode {
+    GltfNode {
+      camera: None,
+      children: None,
+      translation: None,
+      scale: None,
+      rotation: None,
+      weights: None,
+      mesh: None,
+      matrix: None,
+      skin: None,
+
+      extensions: None,
+      extras: None
+    }
+  }
 }

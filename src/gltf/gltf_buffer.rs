@@ -10,3 +10,17 @@ pub struct GltfBuffer {
   pub extensions: Option<HashMap<String, Value>>,
   pub extras: Option<HashMap<String, Value>>,
 }
+
+impl GltfBuffer {
+  pub fn new(
+    byte_length: u32
+  ) -> GltfBuffer {
+    GltfBuffer {
+      byte_length: byte_length,
+      uri: None,
+      name: None,
+      extensions: None,
+      extras: None
+    }
+  }
+}

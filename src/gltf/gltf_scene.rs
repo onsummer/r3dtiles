@@ -9,3 +9,14 @@ pub struct GltfScene {
   pub extensions: Option<HashMap<String, Value>>,
   pub extras: Option<HashMap<String, Value>>,
 }
+
+impl GltfScene {
+  pub fn new() -> GltfScene {
+    GltfScene {
+      nodes: Vec::new() as Vec<u32>,
+      name: None,
+      extras: None,
+      extensions: None
+    }
+  }
+}

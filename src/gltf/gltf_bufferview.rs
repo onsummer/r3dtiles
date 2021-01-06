@@ -19,3 +19,22 @@ pub enum GltfBufferViewTarget {
   ElementArrayBuffer(u16),
   Other(u16)
 }
+
+impl GltfBufferView {
+  pub fn new(
+    buffer_index: u32,
+    byte_length: u32
+  ) -> GltfBufferView {
+    GltfBufferView {
+      buffer: buffer_index,
+      byte_length: byte_length,
+      byte_offset: Some(0),
+      // target: Some(GltfBufferViewTarget::ArrayBuffer(5123)),
+      target: None,
+      byte_stride: Some(0),
+      name: None,
+      extensions: None,
+      extras: None
+    }
+  }
+}

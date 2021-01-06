@@ -17,3 +17,17 @@ pub enum GltfImageMimeType {
   Jpeg(String),
   Other(String)
 }
+
+impl GltfImage {
+  pub fn new() -> GltfImage {
+    GltfImage {
+      uri: None,
+      bufferview: None,
+      mime_type: None,
+      name: None,
+
+      extensions: None,
+      extras: None
+    }
+  }
+}
