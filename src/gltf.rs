@@ -39,21 +39,21 @@ impl Gltf {
     Gltf {
       asset: gltf_asset::GltfAsset::new(),
 
-      buffers: Vec::new(),
-      bufferviews: Vec::new(),
-      accessors: Vec::new(),
+      buffers: Vec::new() as Vec<gltf_buffer::GltfBuffer>,
+      bufferviews: Vec::new() as Vec<gltf_bufferview::GltfBufferView>,
+      accessors: Vec::new() as Vec<gltf_accessor::GltfAccessor>,
 
-      scenes: Vec::new(),
-      nodes: Vec::new(),
-      meshes: Vec::new(),
+      scenes: Vec::new() as Vec<gltf_scene::GltfScene>,
+      nodes: Vec::new() as Vec<gltf_node::GltfNode>,
+      meshes: Vec::new() as Vec<gltf_mesh::GltfMesh>,
 
-      materials: Vec::new(),
-      textures: Vec::new(),
-      samplers: Vec::new(),
-      images: Vec::new(),
+      materials: Vec::new() as Vec<gltf_material::GltfMaterial>,
+      textures: Vec::new() as Vec<gltf_texture::GltfTexture>,
+      samplers: Vec::new() as Vec<gltf_sampler::GltfSampler>,
+      images: Vec::new() as Vec<gltf_image::GltfImage>,
 
-      extensions_used: Vec::new(),
-      extensions_required: Vec::new()
+      extensions_used: Vec::new() as Vec<String>,
+      extensions_required: Vec::new() as Vec<String> 
     }
   }
 }
