@@ -1,6 +1,6 @@
 extern crate serde_json;
 use serde_json::Value;
-use std::iter::Map;
+use std::collections::HashMap;
 
 pub struct GltfMaterial {
   pub alpha_cutoff: Option<f64>,
@@ -16,8 +16,8 @@ pub struct GltfMaterial {
 
   pub name: Option<String>,
 
-  pub extensions: Option<Map<String, Value>>,
-  pub extras: Option<Map<String, Value>>,
+  pub extensions: Option<HashMap<String, Value>>,
+  pub extras: Option<HashMap<String, Value>>,
 }
 
 pub enum GltfAlphaMode {
@@ -33,8 +33,8 @@ pub struct GltfPbr {
   pub roughness_factor: Option<f64>,
   pub metallic_roughness_rtexture: Option<GltfTextureInfo>,
 
-  pub extensions: Option<Map<String, Value>>,
-  pub extras: Option<Map<String, Value>>,
+  pub extensions: Option<HashMap<String, Value>>,
+  pub extras: Option<HashMap<String, Value>>,
 }
 
 pub struct GltfNormalTextureInfo {
@@ -42,8 +42,8 @@ pub struct GltfNormalTextureInfo {
   pub scale: Option<f64>,
   pub tex_coord: Option<u32>,
 
-  pub extensions: Option<Map<String, Value>>,
-  pub extras: Option<Map<String, Value>>,
+  pub extensions: Option<HashMap<String, Value>>,
+  pub extras: Option<HashMap<String, Value>>,
 }
 
 pub struct GltfOcclusionTextureInfo {
@@ -51,8 +51,8 @@ pub struct GltfOcclusionTextureInfo {
   pub strength: Option<f64>,
   pub tex_coord: Option<u32>,
 
-  pub extensions: Option<Map<String, Value>>,
-  pub extras: Option<Map<String, Value>>,
+  pub extensions: Option<HashMap<String, Value>>,
+  pub extras: Option<HashMap<String, Value>>,
 }
 
 pub struct GltfTextureInfo {

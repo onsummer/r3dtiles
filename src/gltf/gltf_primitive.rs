@@ -1,9 +1,10 @@
 extern crate serde_json;
 use serde_json::Value;
 use std::iter::Map;
+use std::collections::HashMap;
 
 pub struct GltfPrimitive {
-  pub attributes: Map<String, u32>,
+  pub attributes: HashMap<String, u32>,
   pub indices: Option<u32>,
 
   pub material: Option<u32>,

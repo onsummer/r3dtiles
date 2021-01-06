@@ -1,18 +1,18 @@
-mod gltf_asset;
+pub mod gltf_asset;
 
-mod gltf_buffer;
-mod gltf_bufferview;
-mod gltf_accessor;
+pub mod gltf_buffer;
+pub mod gltf_bufferview;
+pub mod gltf_accessor;
 
-mod gltf_scene;
-mod gltf_node;
-mod gltf_mesh;
-mod gltf_primitive;
+pub mod gltf_scene;
+pub mod gltf_node;
+pub mod gltf_mesh;
+pub mod gltf_primitive;
 
-mod gltf_material;
-mod gltf_sampler;
-mod gltf_image;
-mod gltf_texture;
+pub mod gltf_material;
+pub mod gltf_sampler;
+pub mod gltf_image;
+pub mod gltf_texture;
 
 pub struct Gltf {
   pub asset: gltf_asset::GltfAsset,

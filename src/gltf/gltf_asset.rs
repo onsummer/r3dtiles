@@ -1,13 +1,13 @@
 extern crate serde_json;
 use serde_json::Value;
-use std::iter::Map;
+use std::collections::HashMap;
 
 pub struct GltfAsset {
-  pub version: i32,
+  pub version: u8,
   pub copyright: Option<String>,
   pub generator: Option<String>,
   pub min_version: Option<String>,
   
-  pub extensions: Option<Map<String, Value>>,
-  pub extras: Option<Map<String, Value>>,
+  pub extensions: Option<HashMap<String, Value>>,
+  pub extras: Option<HashMap<String, Value>>,
 }
