@@ -1,6 +1,9 @@
 extern crate serde_json;
 use serde_json::Value;
+extern crate serde;
+use serde::{Serialize, Deserialize};
 
+#[derive(Serialize, Deserialize, Debug)]
 pub struct GltfSampler {
   pub mag_filter: Option<GltfMagnificationFilter>,
   pub min_filter: Option<GltfMinificationFilter>,
@@ -27,11 +30,14 @@ impl GltfSampler {
   }
 }
 
+#[derive(Serialize, Deserialize, Debug)]
 pub enum GltfMagnificationFilter {
   Nearest(u16),
   Linear(u16),
   Other(u16)
 }
+
+#[derive(Serialize, Deserialize, Debug)]
 pub enum GltfMinificationFilter {
   Nearest(u16),
   Linear(u16),
@@ -42,6 +48,7 @@ pub enum GltfMinificationFilter {
   Other(u16)
 }
 
+#[derive(Serialize, Deserialize, Debug)]
 pub enum GltfWrapType {
   ClampToEdge(u16),
   MirroredRepeat(u16),

@@ -1,7 +1,10 @@
 extern crate serde_json;
 use serde_json::Value;
 use std::collections::HashMap;
+extern crate serde;
+use serde::{Serialize, Deserialize};
 
+#[derive(Serialize, Deserialize, Debug)]
 pub struct GltfBufferView {
   pub buffer: u32,
   pub byte_length: u32,
@@ -14,6 +17,7 @@ pub struct GltfBufferView {
   pub extras: Option<HashMap<String, Value>>,
 }
 
+#[derive(Serialize, Deserialize, Debug)]
 pub enum GltfBufferViewTarget {
   ArrayBuffer(u16),
   ElementArrayBuffer(u16),

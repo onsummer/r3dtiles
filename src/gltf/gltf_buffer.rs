@@ -1,7 +1,10 @@
 extern crate serde_json;
 use serde_json::Value;
 use std::collections::HashMap;
+extern crate serde;
+use serde::{Serialize, Deserialize};
 
+#[derive(Serialize, Deserialize, Debug)]
 pub struct GltfBuffer {
   pub byte_length: u32,
   pub uri: Option<String>,

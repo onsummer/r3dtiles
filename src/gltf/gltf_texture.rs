@@ -1,6 +1,9 @@
 extern crate serde_json;
 use serde_json::Value;
+extern crate serde;
+use serde::{Serialize, Deserialize};
 
+#[derive(Serialize, Deserialize, Debug)]
 pub struct GltfTexture {
   pub sampler: Option<u32>,
   pub source: Option<u32>,

@@ -3,6 +3,10 @@ use serde_json::Value;
 
 use super::gltf_primitive::GltfPrimitive;
 
+extern crate serde;
+use serde::{Serialize, Deserialize};
+
+#[derive(Serialize, Deserialize, Debug)]
 pub struct GltfMesh {
   pub primitives: Vec<GltfPrimitive>,
   pub weights: Option<Vec<u32>>,

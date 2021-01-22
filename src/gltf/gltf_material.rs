@@ -1,6 +1,9 @@
 extern crate serde_json;
 use serde_json::Value;
+extern crate serde;
+use serde::{Serialize, Deserialize};
 
+#[derive(Serialize, Deserialize, Debug)]
 pub struct GltfMaterial {
   pub alpha_cutoff: Option<f64>,
   pub alpha_mode: Option<GltfAlphaMode>,
@@ -41,12 +44,14 @@ impl GltfMaterial {
   }
 }
 
+#[derive(Serialize, Deserialize, Debug)]
 pub enum GltfAlphaMode {
   Opaque,
   Mask,
   Blend
 }
 
+#[derive(Serialize, Deserialize, Debug)]
 pub struct GltfPbr {
   pub basecolor_factor: Option<[f64; 4]>,
   pub basecolor_texture: Option<GltfTextureInfo>,
@@ -73,6 +78,7 @@ impl GltfPbr {
   }
 }
 
+#[derive(Serialize, Deserialize, Debug)]
 pub struct GltfNormalTextureInfo {
   pub index: u32,
   pub scale: Option<f64>,
@@ -96,6 +102,7 @@ impl GltfNormalTextureInfo {
   }
 }
 
+#[derive(Serialize, Deserialize, Debug)]
 pub struct GltfOcclusionTextureInfo {
   pub index: u32,
   pub strength: Option<f64>,
@@ -119,6 +126,7 @@ impl GltfOcclusionTextureInfo {
   }
 }
 
+#[derive(Serialize, Deserialize, Debug)]
 pub struct GltfTextureInfo {
   pub index: u32,
   pub tex_coord: Option<u32>,

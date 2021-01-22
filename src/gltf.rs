@@ -1,3 +1,6 @@
+extern crate serde;
+use serde::{Serialize, Deserialize};
+
 pub mod gltf_asset;
 
 pub mod gltf_buffer;
@@ -14,6 +17,9 @@ pub mod gltf_sampler;
 pub mod gltf_image;
 pub mod gltf_texture;
 
+pub mod gltf_to_i3snode;
+
+#[derive(Serialize, Deserialize, Debug)]
 pub struct Gltf {
   pub asset: gltf_asset::GltfAsset,
 

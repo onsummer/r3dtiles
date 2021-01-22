@@ -1,8 +1,11 @@
 extern crate serde_json;
 use serde_json::Value;
-use std::iter::Map;
 use std::collections::HashMap;
 
+extern crate serde;
+use serde::{Serialize, Deserialize};
+
+#[derive(Serialize, Deserialize, Debug)]
 pub struct GltfPrimitive {
   pub attributes: HashMap<String, u32>,
   pub indices: Option<u32>,
@@ -11,7 +14,7 @@ pub struct GltfPrimitive {
 
   pub mode: Option<GltfPrimitiveMode>,
 
-  pub targets: Option<Vec<Map<String, u32>>>,
+  pub targets: Option<Vec<HashMap<String, u32>>>,
 
   pub name: Option<String>,
 
@@ -19,6 +22,7 @@ pub struct GltfPrimitive {
   pub extras: Option<Value>,
 }
 
+#[derive(Serialize, Deserialize, Debug)]
 pub enum GltfPrimitiveMode {
   Points(u8),
   Lines(u8),

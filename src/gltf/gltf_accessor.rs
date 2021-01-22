@@ -1,3 +1,7 @@
+extern crate serde;
+use serde::{Serialize, Deserialize};
+
+#[derive(Serialize, Deserialize, Debug)]
 pub struct GltfAccessor {
   pub component_type: GltfComponentType,
   pub attribute_type: GltfAttributeType,
@@ -32,10 +36,12 @@ impl GltfAccessor {
   }
 }
 
+#[derive(Serialize, Deserialize, Debug)]
 pub struct GltfAccessorSparse {
   // TODO
 }
 
+#[derive(Serialize, Deserialize, Debug)]
 pub enum GltfComponentType {
   Byte(u16),
   UnsignedByte(u16),
@@ -45,6 +51,7 @@ pub enum GltfComponentType {
   Float(u16)
 }
 
+#[derive(Serialize, Deserialize, Debug)]
 pub enum GltfAttributeType {
   Scalar,
   Vec2,
@@ -55,6 +62,7 @@ pub enum GltfAttributeType {
   Mat4,
 }
 
+#[derive(Serialize, Deserialize, Debug)]
 pub enum GltfMinMax {
   Arr1([f64; 1]),
   Arr2([f64; 2]),
