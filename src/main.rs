@@ -18,7 +18,7 @@ fn main() {
     Err(err) => panic!("Read tileset.json Error {err:?}")
   };
 
-  let tileset_version = json_tileset.assets.version;
+  let tileset_version = json_tileset.asset.version;
 
   println!("Tileset version: {}", tileset_version);
   println!("Finish.");
