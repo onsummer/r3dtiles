@@ -1,21 +1,25 @@
-extern crate r3dtiles;
-use std::collections::HashMap;
-use r3dtiles::gltf::gltf_primitive::{ GltfPrimitive, GltfPrimitiveMode };
+pub mod tileset;
+
+use std::fs;
+use serde_json::from_str;
 
 fn main() {
-  let mut contacts = HashMap::new();
-  contacts.insert(String::from("POSITION"), 0);
-
-  let mut prmt = GltfPrimitive {
-    attributes: contacts,
-    mode: Some(GltfPrimitiveMode::Triangles(4u8)),
-    name: Some(String::from("test primitives")),
-    indices: Some(1),
-    material: Some(0),
-    extensions: None,
-    extras: None,
-    targets: None
+  let file_path = String::from("./sample-data/tileset-file/tileset.json");
+  let tileset_file_result = fs::read_to_string(file_path);
+  let tileset_file_text = match tileset_file_result {
+    Ok(file) => file,
+    Err(err) => panic!("Problem opening the file {err:?}")
   };
-  prmt.name = Some(String::from("first primitive"));
-  println!("{}", prmt.name.unwrap());
+
+
+  let json_tileset_result = from_str::<tileset::Tileset>(&tileset_file_text);
+  let json_tileset = match json_tileset_result {
+    Ok(tileset) => tileset,
+    Err(err) => panic!("Read tileset.json Error {err:?}")
+  };
+
+  let tileset_version = json_tileset.assets.version;
+
+  println!("Tileset version: {}", tileset_version);
+  println!("Finish.");
 }
