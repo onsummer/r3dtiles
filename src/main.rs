@@ -18,8 +18,11 @@ fn main() {
     Err(err) => panic!("Read tileset.json Error {err:?}")
   };
 
-  let tileset_version = json_tileset.asset.version;
+  let tileset_ext = match json_tileset.extension_required {
+    Some(ext_rq) => ext_rq,
+    None => vec![],
+  };
 
-  println!("Tileset version: {}", tileset_version);
+  println!("Tileset ext: {:?}", tileset_ext);
   println!("Finish.");
 }

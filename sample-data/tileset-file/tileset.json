@@ -1,8 +1,18 @@
 {
-  "assets": {
+  "asset": {
     "version": "1.0"
   },
+  "geometricError": 1000,
+  "extensionUsed": ["3DTILES_batch_table_hierarchy"],
+  "extensionRequired": ["3DTILES_batch_table_hierarchy"],
   "root": {
-    
+    "refine": "ADD",
+    "boundingVolume": {
+      "region": [1,1,1,1,1,1]
+    },
+    "geometricError": 800,
+    "content": {
+      "uri": ""
+    }
   }
 }
